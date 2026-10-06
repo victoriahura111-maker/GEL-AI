@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Environment files (keep the committed template)
+.env
+.env.*
+!.env.example
+
+# Test coverage
+coverage/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editors / IDEs
+.idea/
+.vscode/
+
+# Local Docker overrides (may contain machine-specific values)
+docker-compose.override.yml
+
+# Local backup files (never commit, e.g. package.json.bak / package-lock.json.bak)
+*.bak
+
+# Local upgrade backups (config snapshots, not project source)
+.upgrade-backups/
+
+# Nested clone of this repository — must never be uploaded (contains its own .git)
+GEL-AI/

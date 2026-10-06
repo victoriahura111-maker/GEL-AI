@@ -1,0 +1,23 @@
+# Optional containerized API server (Phase 19).
+#
+# This file contains NO secrets. Every configuration value is read from the
+# repository-root `.env` file — copy `.env.example` to `.env` and fill it in
+# first. The SPA is built separately (`npm run build -w client`) and served by a
+# static host / CDN; see docs/deployment.md.
+#
+#   docker compose up --build
+#
+services:
+  api:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    image: ai-virtual-task-assistant-api:local
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+      PORT: 4000
+    ports:
+      - '4000:4000'
+    restart: unless-stopped

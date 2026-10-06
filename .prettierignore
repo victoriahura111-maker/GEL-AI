@@ -1,0 +1,9 @@
+node_modules
+dist
+build
+coverage
+package-lock.json
+
+# Environment files are not Prettier-managed.
+.env
+.env*

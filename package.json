@@ -1,0 +1,55 @@
+{
+  "name": "task-management-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Virtual Task Assistant — full-stack monorepo (Phase 1: project foundation)",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev -w server\" \"npm run dev -w client\"",
+    "build": "npm run build -w server && npm run build -w client",
+    "start": "npm run start -w server",
+    "start:server": "npm run start -w server",
+    "preview:client": "npm run preview -w client",
+    "test": "jest",
+    "test:server": "jest --selectProjects server",
+    "test:client": "jest --selectProjects client",
+    "test:coverage": "jest --coverage",
+    "test:coverage:server": "jest --selectProjects server --coverage",
+    "test:coverage:client": "jest --selectProjects client --coverage",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/jest": "^30.0.0",
+    "@types/supertest": "^6.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.71.1",
+    "@typescript-eslint/parser": "^8.71.1",
+    "concurrently": "^9.1.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
+    "prettier": "^3.3.3",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.4.14",
+    "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

@@ -1,0 +1,38 @@
+# Build context exclusions for the API server image.
+# NOTE: keep `server/package.json` and `client/package.json` (npm workspaces
+# resolution needs both). The Dockerfile is built with the repository root as
+# the context:  docker build -f server/Dockerfile -t <tag> .
+
+# Dependencies and build output are recreated inside the image.
+node_modules
+**/node_modules
+dist
+**/dist
+build
+**/build
+*.tsbuildinfo
+
+# Tooling / test / coverage artifacts
+coverage
+**/coverage
+.git
+.gitignore
+*.log
+
+# Secrets and local environment (never bake into an image)
+.env
+.env.*
+!.env.example
+
+# OS noise
+.DS_Store
+
+# Not needed to compile the server
+tests
+docs
+client/src
+client/index.html
+client/vite.config.ts
+client/tailwind.config.js
+client/postcss.config.js
+client/tsconfig.json
